@@ -2,10 +2,8 @@
 #include <unistd.h>
 /**
  * main - a C program that prints
- * 
  * Return: Return 1.
 */
-
 int main(void)
 {
 	write(2,
