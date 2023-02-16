@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- *   main - program that prints the size of various types of bytes
+ *  main - program that prints the size of various types of bytes
  *   
- *   Return: Always return 0.
+ *  Return: Always return 0.
  */
 int main(void)
 {
