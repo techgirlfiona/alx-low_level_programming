@@ -1,10 +1,10 @@
 #include <stdio.h>
 /**
- *  main - Entry point,
- *  Print a line of code using puts
- *  ends with a new line
+ * main - Entry point,
+ * to print Programming is like building a multilingual puzzle
+ * ends with a new line
  * 
- *  Return: Always 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
