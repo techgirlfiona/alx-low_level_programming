@@ -1,51 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "variadic_functions.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
-  *print_all - prints anything.
-  *@format: list of all arguments passed to the function.
-  *
-  *Return: void.
-  */
-void print_all(const char * const format, ...)
+ * print_strings - A function that prints a strinh followed by a new line.
+ * @separator: An input string to be printed between numbers.
+ * @n: number of parameters
+ * @...: Other parameters
+ */
+void print_strings(const char *separator, const unsigned int n, ...)
 {
-	unsigned int i;
-	va_list args;
-	char *s, *separator;
+	va_list ap;
+	unsigned int i = 0;
+	char *string;
 
-	va_start(args, format);
-
-	separator = "";
-
-	i = 0;
-	while (format && format[i])
+	va_start(ap, n);
+	for (; i < n; i++)
 	{
-		switch (format[i])
-		{
-			case 'c':
-				printf("%s%c", separator,  va_arg(args, int));
-				break;
-			case 'i':
-				printf("%s%d", separator, va_arg(args, int));
-				break;
-			case 'f':
-				printf("%s%f", separator, va_arg(args, double));
-				break;
-			case 's':
-				s = va_arg(args, char *);
-				if (s == NULL)
-					s = "(nil)";
-				printf("%s%s", separator, s);
-				break;
-			default:
-				i++;
-				continue;
-		}
-		separator = ", ";
-		i++;
+		string = va_arg(ap, char*);
+		if (string == NULL)
+			printf("(nil)");
+		else
+			printf("%s", string);
+		if (i != (n - 1) && separator != NULL)
+			printf("%s", separator);
 	}
-
 	printf("\n");
-	va_end(args);
+	va_end(ap);
 }
