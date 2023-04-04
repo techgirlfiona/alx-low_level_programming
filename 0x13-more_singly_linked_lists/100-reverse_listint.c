@@ -8,19 +8,18 @@ include "lists.h"
 
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *ahead, *reverse;
+	listint_t *temp, *current;
 
-	if (head == NULL || *head == NULL)
-		return (NULL);
-	behind = NULL;
-
-	while ((*head)->next != NULL)
+	temp = NULL;
+	current = NULL;
+	while (*head != NULL)
 	{
-		ahead = (*head)->next;
-		(*head)->next = reverse;
-		behind = *head;
-		*head = ahead;
+		current = *head;
+		*head = (*head)->next;
+		current->next = temp;
+		temp = current;
 	}
-	(*head)->next = reverse;
+	*head = current;
+
 	return (*head);
 }
